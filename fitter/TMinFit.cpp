@@ -352,6 +352,7 @@ void TMinFit::TransformHistogram(
 //======================================================================
 
 void TMinFit::GetNevt(
+    bool isNorm,
     double p1,
     double p2,
     double p3,
@@ -359,6 +360,9 @@ void TMinFit::GetNevt(
     double cutoff,
     double (&nevt)[2])
 {
+  double loc_norm = 1.;
+  if (isNorm) loc_norm = norm;
+
   // inverted transformation
   p1 = p1 + 1.0;
   p3 = p3 + 1.0;
@@ -381,11 +385,11 @@ void TMinFit::GetNevt(
     nevt[0] += background_->Integral( 1, cutbin[1] );
     nevt[0] -= background_->GetBinContent( cutbin[1] )
             * (background_->GetBinLowEdge( cutbin[1]+1 ) - cutoff_bkg) / binwidth;
-    nevt[0] *= norm;
+    nevt[0] *= loc_norm;
   }
 
   nevt[1] = signal_->Integral() + background_->Integral();
-  nevt[1] *= norm;
+  nevt[1] *= loc_norm;
   nevt[1] -= nevt[0];
 
   return;

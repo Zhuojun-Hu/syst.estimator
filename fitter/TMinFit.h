@@ -36,6 +36,7 @@ public:
 
 
   void GetNevt(
+    bool isNorm,
     double p1,
     double p2,
     double p3,
