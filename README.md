@@ -19,7 +19,10 @@ Four parameters will be fitted for one sample, including two scale parameters $a
 
 In this case we are discussing, the ring counting likelihood distributions will be fitted.
 The signal is composed of true single-ring events, and the background is true multi-ring events.
-...
+... TO BE CONTINUED
+
+
+
 
 Step 1: Start a jupyter lab server at port 9527 (or what ever you like)
 ```
@@ -37,6 +40,13 @@ Ctrl+Alt+P
 then
 ```
 Remote-SSH: Connect to Host...
+```
+If you're doint this for the first time, you need to create SSH port forwarding from your local machine:
+```
+ssh -L 9527:localhost:9527 username@sukap02
+```
+Otherwise:
+```
 ssh username@sukap02
 ```
 ---
