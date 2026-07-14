@@ -7,7 +7,7 @@ It is dedicated to the reconstruction-related uncertainties that needs to be est
 Atmospheric neutrino samples are used to assess these uncertainties because no other control sample spans the same energy range and event topologies.
 
 ## 1.Scale-and-Shift Method
-In the next, I will introduce the scale-and-shift method with a walk-through example of estimating the ring separation uncertainty for sub-GeV $e$-like samples with momentum $p_e$ below 400 MeV/$c$.
+In the next, I will introduce the scale-and-shift method with a walk-through example of estimating the ring separation uncertainty for sub-GeV $e$-like samples with momentum $p_e$ below 400 MeV/c.
 The MC distribution of a reconstruction likelihood $x$, used to separate signal and background in the event classification, is fitted to data.
 The MC events are first labeled as true signal or background, and their respective $x$ distributions are fitted to data independently by applying a linear transformation,
 ```math
@@ -23,11 +23,11 @@ The signal and background distributions is first normalized with a factor of dat
 Then, they are used as templated to fit the data distribution as described above.
 
 After obtaining the best-fit values, we'd like to generate toy MC distributions around these best-fit values.
-We want to cover the 5$sigma$ intervals for both sides of the best-fit values.
-So, first we need to find out the 5$sigma$ intervals.
+We want to cover the 5$\sigma$ intervals for both sides of the best-fit values.
+So, first we need to find out the 5$\sigma$ intervals.
 
 There is an interactive fitter 'interactiveFitter.ipynb' written in python on jupyter notebook for this purpose.
-The reason we need an interactive fitter is that the minimizer we are using does not produce an accurate 1$sigma$ error.
+The reason we need an interactive fitter is that the minimizer we are using does not produce an accurate 1$\sigma$ error.
 Instead of using the minimizer to determine the 5$sigma$ interval, we adopt the results from the minimizer as a seed and do grid scans.
 For each sample, a grid is built wiht all four parameters, and a $chi^2$ value is computed for each grid point.
 We may need several iteration to finally find the 5$sigma$ intervals.
