@@ -23,7 +23,7 @@ The signal and background distributions is first normalized with a factor of dat
 Then, they are used as templated to fit the data distribution as described above.
 
 After obtaining the best-fit values, we'd like to generate toy MC distributions around these best-fit values.
-We want to cover the 5$\sigma$ intervals for both sides of the best-fit values.
+We want to cover the 5\sigma intervals for both sides of the best-fit values.
 So, first we need to find out the 5$\sigma$ intervals.
 
 There is an interactive fitter 'interactiveFitter.ipynb' written in python on jupyter notebook for this purpose.
