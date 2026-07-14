@@ -23,28 +23,28 @@ The signal and background distributions is first normalized with a factor of dat
 Then, they are used as templated to fit the data distribution as described above.
 
 After obtaining the best-fit values, we'd like to generate toy MC distributions around these best-fit values.
-We want to cover the 5\sigma intervals for both sides of the best-fit values.
-So, first we need to find out the 5$\sigma$ intervals.
+We want to cover the 5$ \sigma $ intervals for both sides of the best-fit values.
+So, first we need to find out the 5$ \sigma $ intervals.
 
 There is an interactive fitter 'interactiveFitter.ipynb' written in python on jupyter notebook for this purpose.
-The reason we need an interactive fitter is that the minimizer we are using does not produce an accurate 1$\sigma$ error.
-Instead of using the minimizer to determine the 5$sigma$ interval, we adopt the results from the minimizer as a seed and do grid scans.
-For each sample, a grid is built wiht all four parameters, and a $chi^2$ value is computed for each grid point.
-We may need several iteration to finally find the 5$sigma$ intervals.
+The reason we need an interactive fitter is that the minimizer we are using does not produce an accurate 1$ \sigma $ error.
+Instead of using the minimizer to determine the 5$ \sigma $ interval, we adopt the results from the minimizer as a seed and do grid scans.
+For each sample, a grid is built wiht all four parameters, and a $ \chi^2 $ value is computed for each grid point.
+We may need several iteration to finally find the 5$ \sigma $ intervals.
 
 There is an application to generate distributions of number of positive and negative events.
-In the previous step, we've found the 5$sigma$ intervals for the four parameters.
-We then define a grid that covers the 5$sigma$ intervals, such that the parameters are varied.
+In the previous step, we've found the 5$ \sigma $ intervals for the four parameters.
+We then define a grid that covers the 5$ \sigma $ intervals, such that the parameters are varied.
 These variations shift events across the threshold used for selection, producing distributions of positive and negative counts.
-These distributions are weighted by probability density functions (PDFs), constructed based on the scanned $Delta$$chi^2$ distributions following Wilks’ theorem.
-The weighted distributions are further fitted by Gaussian functions to obtain means $N_{gaus}$ and standard variations $sigma_{gaus}$. 
-The corresponding systematic uncertainty $epsilon$ for sub-GeV $e$-like $p<400$ 1 ring event selection is given by,
+These distributions are weighted by probability density functions (PDFs), constructed based on the scanned $ \Delta $ $ \chi^2 $ distributions following Wilks' theorem.
+The weighted distributions are further fitted by Gaussian functions to obtain means $ N_{gaus}$ and standard variations $ \sigma_{gaus}$. 
+The corresponding systematic uncertainty $ \epsilon $ for sub-GeV $e$-like $p<400$ 1 ring event selection is given by,
 ```math
 \begin{equation}
   epsilon = |N_{nominal}-N_{gaus}|+sigma_{gaus} / N_{nominal},
 \end{equation}
 ```
-where $N_{nominal}$ is the nominal 1 ring event count in sub-GeV $e$-like samples with momentum $p_e$ below 400 MeV/$c$.
+where $N_{nominal}$ is the nominal 1 ring event count in sub-GeV $e$-like samples with momentum $p_e$ below 400 MeV/c.
 Similarly, the systematic uncertainty for multi ring event selection is found using the Gaussian fit results from the negative distribution.
 
 ## 2.Usage of Interactive Fitter
@@ -92,12 +92,12 @@ Run cell [1] to load modules and functions.
 Modify the input files and histogram names as required in cell [2] and run it.
 Run cell [3] to launch the minimizer and obtain seeds for grid scan.
 Run cell [4] for the first grid scan, and cell [5] for iterative scan.
-Finally, run cell [6] to obtain the $chi^2$ distributions.
+Finally, run cell [6] to obtain the $ \chi^2 $ distributions.
 
 ## 3.Usage of genSystErr
 
 This app varies $a$ and $b$ and generates distributions for positive and negative counts given a cutoff.
-It then weights the distributions with their corresponding $chi^2$ PDFs, before doing Gaussian fits.
+It then weights the distributions with their corresponding $ \chi^2 $ PDFs, before doing Gaussian fits.
 Finally it computes systematic uncertainties for each sample, positive and negative, based on the Gaussian fit results.
 
 Step 1: Define Card File
@@ -121,6 +121,6 @@ Stage 2:
 ```
 ./genSystErr ../Cards/yourcardfile 2
 ```
-weights the distributions with $chi^2$ PDFs and fits them with Gaussian functions.
+weights the distributions with $ \chi^2 $ PDFs and fits them with Gaussian functions.
 The weighted distributions will be stored back to the same .root file.
 The final results will be printed to a text file.
